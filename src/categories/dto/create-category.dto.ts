@@ -1,6 +1,6 @@
-import { IsString } from 'class-validator'
+import { IsNotEmpty } from 'class-validator'
 
 export class CreateCategoryDto {
-    @IsString()
+    @IsNotEmpty({message: 'El Nombre de la Categoria no puede ir vacio.'})
     name: string
 }
