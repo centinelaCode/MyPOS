@@ -12,7 +12,6 @@ export class CategoriesService {
   ) {}
 
   create(createCategoryDto: CreateCategoryDto) {
-
     // ==== Forma 1 ====
     // const category = new Category()
     // category.name = createCategoryDto.name
@@ -23,10 +22,12 @@ export class CategoriesService {
   }
 
   findAll() {
-    return `This action returns all categories`;
+    return this.categoryRepository.find();
   }
+
   findOne(id: number) {
-    return `This action returns a #${id} category`;
+    const category = this.categoryRepository.findOneBy({id})
+    return category;
   }
 
   update(id: number, updateCategoryDto: UpdateCategoryDto) {
