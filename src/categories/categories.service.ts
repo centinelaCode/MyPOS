@@ -11,7 +11,15 @@ export class CategoriesService {
     @InjectRepository(Category) private readonly categoryRepository : Repository<Category>
   ) {}
 
-  create(createCategoryDto: CreateCategoryDto) {    
+  create(createCategoryDto: CreateCategoryDto) {
+
+    // ==== Forma 1 ====
+    // const category = new Category()
+    // category.name = createCategoryDto.name
+    // return this.categoryRepository.save(category); 
+    
+    // ==== Forma 2 ====
+    return this.categoryRepository.save(createCategoryDto);
   }
 
   findAll() {
